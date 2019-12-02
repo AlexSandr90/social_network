@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import './content.css';
+
+import {
+    ContentMain,
+    ProfileHeadPic
+} from "./styledComponents";
 
 export default class Content extends Component {
     render() {
         return (
-            <div className='content'>
-                <div className="profile-head-pic"/>
+            <ContentMain>
+                <ProfileHeadPic/>
                 <div>
                     ava + description
                 </div>
@@ -17,7 +21,7 @@ export default class Content extends Component {
                         <div>post 2</div>
                     </div>
                 </div>
-            </div>
-        )
+            </ContentMain>
+        );
     }
-}
+};

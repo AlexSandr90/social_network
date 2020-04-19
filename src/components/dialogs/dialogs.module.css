@@ -1,0 +1,25 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialogsItems {
+    padding: 10px;
+}
+
+.messagesField {
+    padding: 10px;
+    min-height: calc(75vh - 57px);
+}
+
+.messageInputField {
+
+}
+
+.textField {
+
+}
+
+.button {
+
+}

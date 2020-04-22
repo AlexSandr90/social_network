@@ -1,7 +1,15 @@
 import React from "react";
 
-import p from './myPosts.module.css';
 import Post from "./post";
+
+
+import p from './myPosts.module.css';
+
+
+import {
+    addPostActionCreater,
+    updatePostDataActionCreater,
+} from "../../../redux";
 
 const MyPosts = props => {
 
@@ -26,18 +34,11 @@ const MyPosts = props => {
 
     const postMessage = React.createRef();
 
-    const newPostMessage = () => {
-        props.dispatch({
-            type: 'ADD-POST'
-        })
-    };
+    const newPostMessage = () => props
+        .dispatch(addPostActionCreater());
 
-    const onPostChange = () => {
-        props.dispatch({
-            type: 'UPDATE-POST-DATA',
-            message: postMessage.current.value
-        })
-    };
+    const onPostChange = () => props
+        .dispatch(updatePostDataActionCreater(postMessage.current.value));
 
     return (
         <div className={postsBlock}>

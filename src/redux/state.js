@@ -193,4 +193,38 @@ const store = {
     },
 };
 
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_POST_DATA = 'UPDATE-POST-DATA';
+const UPDATE_MESSAGE_DATA = 'UPDATE-MESSAGE-DATA';
+
+const addPostActionCreater = () => {
+    return {type: ADD_POST};
+};
+
+const addMessageActionCreater = () => {
+    return {type: ADD_MESSAGE};
+};
+
+const updatePostDataActionCreater = message => {
+    return ({
+        type: UPDATE_POST_DATA,
+        message: message
+    })
+};
+
+const updateMessageDataActionType = message => {
+    return ({
+        type: UPDATE_MESSAGE_DATA,
+        message: message
+    })
+}
+
+export {
+    addPostActionCreater,
+    addMessageActionCreater,
+    updatePostDataActionCreater,
+    updateMessageDataActionType,
+}
+
 export default store;

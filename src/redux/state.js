@@ -1,3 +1,9 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navbarReducer from "./navbarReducer";
+import friendsReducer from "./friendsReducer";
+
+
 const store = {
 
     _callSubsciber() {
@@ -120,7 +126,10 @@ const store = {
                     lastName: 'Kopylov',
                 },
             ]
-        }
+        },
+        navbarPage: {
+
+        },
     },
 
     getState() {
@@ -131,80 +140,85 @@ const store = {
         this._callSubsciber = observer;
     },
 
-    _addPost() {
-        let post = {
-            id: this._state.profilePage.postData.length + 1,
-            message: this._state.profilePage.newPostData,
-            likesCount: 0,
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
-        };
+    // _addPost() {
+    //     let post = {
+    //         id: this._state.profilePage.postData.length + 1,
+    //         message: this._state.profilePage.newPostData,
+    //         likesCount: 0,
+    //         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
+    //     };
+    //
+    //     if (this._state.profilePage.newPostData !== undefined && this._state.profilePage.newPostData.length > 0) {
+    //         this._state.profilePage.postData.push(post);
+    //         console.log(this._state.profilePage.postData);
+    //         this._state.profilePage.newPostData = '';
+    //         this._callSubsciber(this._state);
+    //     }
+    // },
 
-        if (this._state.profilePage.newPostData !== undefined && this._state.profilePage.newPostData.length > 0) {
-            this._state.profilePage.postData.push(post);
-            console.log(this._state.profilePage.postData);
-            this._state.profilePage.newPostData = '';
-            this._callSubsciber(this._state);
-        }
-    },
+    // _addMessage() {
+    //     let message = {
+    //         id: this._state.dialogsPage.messagesData.length + 1,
+    //         message: this._state.dialogsPage.newMessageText
+    //     };
+    //
+    //     if (this._state.dialogsPage.newMessageText !== undefined && this._state.dialogsPage.newMessageText.length > 0) {
+    //         this._state.dialogsPage.messagesData.push(message);
+    //         console.log(this._state.dialogsPage.messagesData);
+    //         this._state.dialogsPage.newMessageText = '';
+    //         this._callSubsciber(this._state);
+    //     }
+    // },
 
-    _addMessage() {
-        let message = {
-            id: this._state.dialogsPage.messagesData.length + 1,
-            message: this._state.dialogsPage.newMessageText
-        };
+    // _updatePostData(message) {
+    //     this._state.profilePage.newPostData = message;
+    //     this._callSubsciber(this._state);
+    // },
 
-        if (this._state.dialogsPage.newMessageText !== undefined && this._state.dialogsPage.newMessageText.length > 0) {
-            this._state.dialogsPage.messagesData.push(message);
-            console.log(this._state.dialogsPage.messagesData);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubsciber(this._state);
-        }
-    },
-
-    _updatePostData(message) {
-        this._state.profilePage.newPostData = message;
-        this._callSubsciber(this._state);
-    },
-
-    _updateMessageData(message) {
-        this._state.dialogsPage.newMessageText = message;
-        this._callSubsciber(this._state);
-    },
+    // _updateMessageData(message) {
+    //     this._state.dialogsPage.newMessageText = message;
+    //     this._callSubsciber(this._state);
+    // },
 
     dispatch(action) {
 
-        switch (action.type) {
-            case 'ADD-POST':
-                this._addPost();
-                break;
-            case 'ADD-MESSAGE':
-                this._addMessage();
-                break;
-            case 'UPDATE-POST-DATA':
-                this._updatePostData(action.message);
-                break;
-            case 'UPDATE-MESSAGE-DATA':
-                this._updateMessageData(action.message);
-                break;
-            default:
-                break;
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.navbarPage = navbarReducer(this._state.navbarPage, action);
+        this._state.friendsPage = friendsReducer(this._state.friendsPage, action);
+
+        this._callSubsciber(this._state);
+
+
+        // switch (action.type) {
+        //     case 'ADD-POST':
+        //         this._addPost();
+        //         break;
+        //     case 'ADD-MESSAGE':
+        //         this._addMessage();
+        //         break;
+        //     case 'UPDATE-POST-DATA':
+        //         this._updatePostData(action.message);
+        //         break;
+        //     case 'UPDATE-MESSAGE-DATA':
+        //         this._updateMessageData(action.message);
+        //         break;
+        //     default:
+        //         break;
+        // }
 
     },
 };
 
 const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_POST_DATA = 'UPDATE-POST-DATA';
+
+const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_MESSAGE_DATA = 'UPDATE-MESSAGE-DATA';
 
-const addPostActionCreater = () => {
-    return {type: ADD_POST};
-};
+const addPostActionCreater = () => ({type: ADD_POST});
 
-const addMessageActionCreater = () => {
-    return {type: ADD_MESSAGE};
-};
+const addMessageActionCreater = () => ({type: ADD_MESSAGE});
 
 const updatePostDataActionCreater = message => {
     return ({

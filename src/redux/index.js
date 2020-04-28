@@ -1,11 +1,14 @@
-import store from "./state";
+import store from "./store";
 
 import {
     addPostActionCreater,
+    updatePostDataActionCreater
+} from "./profileReducer";
+
+import {
     addMessageActionCreater,
-    updatePostDataActionCreater,
-    updateMessageDataActionType,
-} from "./state";
+    updateMessageDataActionType
+} from "./dialogsReducer";
 
 export {
     addPostActionCreater,

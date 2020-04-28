@@ -31,8 +31,7 @@ const App = props => {
                 <Route
                     path='/profile'
                     render={() => <Profile
-                        state={ profilePage }
-                        dispatch={ props.dispatch }
+                        store={props.store}
                     />}
                 />
                 <Route
@@ -40,6 +39,7 @@ const App = props => {
                     render={() => <Dialogs
                         state={ dialogsPage }
                         dispatch={ props.dispatch }
+                        // store={props.store}
                     />}
                 />
                 <Route path='/news' render={() => <News/>}/>

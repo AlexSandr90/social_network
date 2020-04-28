@@ -1,15 +1,6 @@
 import React from "react";
-
 import Post from "./post";
-
-
 import p from './myPosts.module.css';
-
-
-import {
-    addPostActionCreater,
-    updatePostDataActionCreater,
-} from "../../../redux";
 
 const MyPosts = props => {
 
@@ -19,11 +10,10 @@ const MyPosts = props => {
     } = p;
 
     const {
-        postData,
         newPostData,
     } = props;
 
-    const PostItem = postData.map(element => (
+    const postItem = props.postData.map(element => (
         <Post
             key={element.id}
             message={element.message}
@@ -34,11 +24,10 @@ const MyPosts = props => {
 
     const postMessage = React.createRef();
 
-    const newPostMessage = () => props
-        .dispatch(addPostActionCreater());
+    const newPostMessage = () => props.addPost();
 
     const onPostChange = () => props
-        .dispatch(updatePostDataActionCreater(postMessage.current.value));
+        .updateNewPostData(postMessage.current.value);
 
     return (
         <div className={postsBlock}>
@@ -58,7 +47,7 @@ const MyPosts = props => {
                 </p>
             </div>
             <div className={posts}>
-                { PostItem }
+                { postItem }
             </div>
         </div>
     )

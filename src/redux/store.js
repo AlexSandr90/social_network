@@ -2,6 +2,14 @@ import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 import navbarReducer from "./navbarReducer";
 import friendsReducer from "./friendsReducer";
+import {
+    addPostActionCreater,
+    updatePostDataActionCreater
+} from "./profileReducer";
+import {
+    addMessageActionCreater,
+    updateMessageDataActionType
+} from "./dialogsReducer";
 
 
 const store = {
@@ -91,7 +99,10 @@ const store = {
                 {id:2, message: 'How are you'},
                 {id:3, message: 'How do you do'}
             ],
-            newMessageText: 'Start to type...'
+            newMessageText: ''
+        },
+        navbarPage: {
+
         },
         friendsPage: {
             friendsData: [
@@ -127,58 +138,15 @@ const store = {
                 },
             ]
         },
-        navbarPage: {
-
-        },
     },
 
     getState() {
         return this._state;
     },
 
-    subsribe(observer) {
+    subscribe(observer) {
         this._callSubsciber = observer;
     },
-
-    // _addPost() {
-    //     let post = {
-    //         id: this._state.profilePage.postData.length + 1,
-    //         message: this._state.profilePage.newPostData,
-    //         likesCount: 0,
-    //         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
-    //     };
-    //
-    //     if (this._state.profilePage.newPostData !== undefined && this._state.profilePage.newPostData.length > 0) {
-    //         this._state.profilePage.postData.push(post);
-    //         console.log(this._state.profilePage.postData);
-    //         this._state.profilePage.newPostData = '';
-    //         this._callSubsciber(this._state);
-    //     }
-    // },
-
-    // _addMessage() {
-    //     let message = {
-    //         id: this._state.dialogsPage.messagesData.length + 1,
-    //         message: this._state.dialogsPage.newMessageText
-    //     };
-    //
-    //     if (this._state.dialogsPage.newMessageText !== undefined && this._state.dialogsPage.newMessageText.length > 0) {
-    //         this._state.dialogsPage.messagesData.push(message);
-    //         console.log(this._state.dialogsPage.messagesData);
-    //         this._state.dialogsPage.newMessageText = '';
-    //         this._callSubsciber(this._state);
-    //     }
-    // },
-
-    // _updatePostData(message) {
-    //     this._state.profilePage.newPostData = message;
-    //     this._callSubsciber(this._state);
-    // },
-
-    // _updateMessageData(message) {
-    //     this._state.dialogsPage.newMessageText = message;
-    //     this._callSubsciber(this._state);
-    // },
 
     dispatch(action) {
 
@@ -189,56 +157,7 @@ const store = {
 
         this._callSubsciber(this._state);
 
-
-        // switch (action.type) {
-        //     case 'ADD-POST':
-        //         this._addPost();
-        //         break;
-        //     case 'ADD-MESSAGE':
-        //         this._addMessage();
-        //         break;
-        //     case 'UPDATE-POST-DATA':
-        //         this._updatePostData(action.message);
-        //         break;
-        //     case 'UPDATE-MESSAGE-DATA':
-        //         this._updateMessageData(action.message);
-        //         break;
-        //     default:
-        //         break;
-        // }
-
     },
 };
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_DATA = 'UPDATE-POST-DATA';
-
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_DATA = 'UPDATE-MESSAGE-DATA';
-
-const addPostActionCreater = () => ({type: ADD_POST});
-
-const addMessageActionCreater = () => ({type: ADD_MESSAGE});
-
-const updatePostDataActionCreater = message => {
-    return ({
-        type: UPDATE_POST_DATA,
-        message: message
-    })
-};
-
-const updateMessageDataActionType = message => {
-    return ({
-        type: UPDATE_MESSAGE_DATA,
-        message: message
-    })
-}
-
-export {
-    addPostActionCreater,
-    addMessageActionCreater,
-    updatePostDataActionCreater,
-    updateMessageDataActionType,
-}
 
 export default store;

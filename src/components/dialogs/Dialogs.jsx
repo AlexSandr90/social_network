@@ -20,7 +20,7 @@ const Dialogs = props => {
         dialogsItems,
         messageInputField,
     } = d;
-// debugger;
+
     const {
         dialogsData,
         messagesData,
@@ -68,6 +68,7 @@ const Dialogs = props => {
                             ref={ messageField }
                             value={ newMessageText }
                             onChange={ onMessageChange }
+                            placeholder='Start to type...'
                         />
                     </p>
                     <p>

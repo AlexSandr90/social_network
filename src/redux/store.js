@@ -7,7 +7,7 @@ import {
     updatePostDataActionCreater
 } from "./profileReducer";
 import {
-    addMessageActionCreater,
+    addMessageActionCreator,
     updateMessageDataActionType
 } from "./dialogsReducer";
 

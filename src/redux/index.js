@@ -6,13 +6,13 @@ import {
 } from "./profileReducer";
 
 import {
-    addMessageActionCreater,
+    addMessageActionCreator,
     updateMessageDataActionType
 } from "./dialogsReducer";
 
 export {
     addPostActionCreater,
-    addMessageActionCreater,
+    addMessageActionCreator,
     updatePostDataActionCreater,
     updateMessageDataActionType,
 }

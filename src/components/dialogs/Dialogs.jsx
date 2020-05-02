@@ -1,17 +1,13 @@
 import React from "react";
-
 import Message from "./message";
 import DialogItem from "./dialogItem";
-
 import d from './dialogs.module.css';
 
-import {
-    addMessageActionCreater,
-    updateMessageDataActionType,
-} from "../../redux";
-
 const Dialogs = props => {
-
+    debugger
+    const state = props.dialogsPage;
+console.log(`state: ${state.value}`);
+console.log(`props: ${props.value}`);
     const {
         button,
         dialogs,
@@ -21,15 +17,7 @@ const Dialogs = props => {
         messageInputField,
     } = d;
 
-    const {
-        dialogsData,
-        messagesData,
-        newMessageText
-    } = props.state;
-
-    const { addMessage, updateMessageData } = props;
-
-    const DialogsItem = dialogsData.map(element => (
+    const dialogsItem = state.dialogsData.map(element => (
         <DialogItem
             key={element.id}
             id={element.id}
@@ -38,7 +26,7 @@ const Dialogs = props => {
         />)
     );
 
-    const MessagesDataItem = messagesData.map(element => (
+    const messagesDataItem = state.messagesData.map(element => (
         <Message
             className={dialogs.messages}
             key={element.id}
@@ -46,26 +34,23 @@ const Dialogs = props => {
         />)
     );
 
-    const messageField = React.createRef();
+    const newMessageText = state.newMessageText;
 
-    const newMessage = () => props
-        .dispatch(addMessageActionCreater());
+    const newMessage = () => props.sendMessage();
 
-    const onMessageChange = () => props
-        .dispatch(updateMessageDataActionType(messageField.current.value));
+    const onMessageChange = event => props.updateMessageData(event.target.value);
 
     return (
         <div className={dialogs}>
             <div className={dialogsItems}>
-                { DialogsItem }
+                { dialogsItem }
             </div>
             <div className={messagesField}>
-                { MessagesDataItem }
+                { messagesDataItem }
                 <div className={messageInputField}>
                     <p>
                         <textarea
                             className={ textField }
-                            ref={ messageField }
                             value={ newMessageText }
                             onChange={ onMessageChange }
                             placeholder='Start to type...'

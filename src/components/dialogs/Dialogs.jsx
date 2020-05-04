@@ -4,7 +4,7 @@ import DialogItem from "./dialogItem";
 import d from './dialogs.module.css';
 
 const Dialogs = props => {
-    debugger
+
     const state = props.dialogsPage;
 console.log(`state: ${state.value}`);
 console.log(`props: ${props.value}`);

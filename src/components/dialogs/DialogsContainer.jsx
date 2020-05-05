@@ -6,6 +6,28 @@ import {
 } from "../../redux";
 import {connect} from "react-redux";
 
+const mapStateToProps = state => {
+    return {
+        dialogsPage: state.dialogsPage,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        sendMessage: () => {
+            dispatch(addMessageActionCreator());
+        },
+        updateMessageData: text => {
+            dispatch(updateMessageDataActionType(text));
+        }
+    }
+};
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+export default DialogsContainer;
+
+
 // const DialogsContainer = props => {
 //
 //     const state = props.store.getState().dialogsPage;
@@ -24,24 +46,3 @@ import {connect} from "react-redux";
 //     )
 //
 // };
-
-const mapStateToProps = state => {
-    return {
-        dialogsPage: state.dialogsPage,
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        sendMessage: () => {
-            dispatch(addMessageActionCreator());
-        },
-        updateMessageData: text => {
-            dispatch(updateMessageDataActionType(text));
-        }
-    }
-}
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;

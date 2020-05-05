@@ -9,9 +9,6 @@ const MyPosts = props => {
         postsBlock
     } = p;
 
-    const {
-        newPostData,
-    } = props;
 
     const postItem = props.postData.map(element => (
         <Post
@@ -38,7 +35,7 @@ const MyPosts = props => {
                 <p>
                     <textarea
                         ref={ postMessage }
-                        value={ newPostData }
+                        value={ props.newPostData }
                         onChange={ onPostChange }
                     />
                 </p>

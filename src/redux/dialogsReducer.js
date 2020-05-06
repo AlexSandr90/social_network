@@ -48,7 +48,6 @@ const dialogsReducer = (state = initialState, action) => {
 
             if (state.newMessageText !== undefined && state.newMessageText.length > 0) {
                 state.messagesData.push(message);
-                // console.log(this._state.dialogsPage.messagesData);
                 state.newMessageText = '';
                 return state;
             }

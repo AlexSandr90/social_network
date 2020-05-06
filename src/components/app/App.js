@@ -10,11 +10,10 @@ import Footer from "../footer";
 import Navbar from "../navbar";
 import Friends from "../friends";
 import Profile from "../profile";
-import Dialogs from "../dialogs";
 import Settings from "../settings";
+import DialogsContainer from "../dialogs/DialogsContainer";
 
 import { Route } from "react-router-dom";
-import DialogsContainer from "../dialogs/DialogsContainer";
 
 const App = props => {
     return (

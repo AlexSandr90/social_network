@@ -14,7 +14,7 @@ const MyPosts = props => {
         newPostData
     } = props;
 
-    const postItem = postData.map(element => (
+    const postItem = props.postData.map(element => (
         <Post
             key={element.id}
             message={element.message}

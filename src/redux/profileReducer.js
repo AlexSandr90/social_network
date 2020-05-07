@@ -52,7 +52,7 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let post = {
                 id: state.postData.length + 1,
                 message: state.newPostData,
@@ -60,19 +60,24 @@ const profileReducer = (state = initialState, action) => {
                 avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
             };
 
+            const stateCopy = {...state};
+            stateCopy.postData = [...state.postData];
+
             if (state.newPostData !== undefined && state.newPostData.length > 0) {
-                state.postData.push(post);
-                state.newPostData = '';
-                return state;
+                stateCopy.postData.push(post);
+                stateCopy.newPostData = '';
+                return stateCopy;
             }
-
-            return state;
-
-        case UPDATE_POST_DATA:
-            state.newPostData = action.message;
-            return state;
-        default:
-            return state;
+        }
+        case UPDATE_POST_DATA: {
+            const stateCopy = {...state};
+            stateCopy.newPostData = action.message;
+            return stateCopy;
+        }
+        default: {
+            const stateCopy = {...state};
+            return stateCopy;
+        }
     }
 };
 

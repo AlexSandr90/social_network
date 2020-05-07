@@ -39,31 +39,28 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
-    const stateCopy = {
-        ...state,
-        // dialogsData: [...state.dialogsData]
-    };
-
     switch (action.type) {
-        case ADD_MESSAGE: {
+        case ADD_MESSAGE:
+
             let message = {
                 id: state.messagesData.length + 1,
                 message: state.newMessageText
             };
 
             if (state.newMessageText !== undefined && state.newMessageText.length > 0) {
-                stateCopy.messagesData.push(message);
-                stateCopy.newMessageText = '';
-                return stateCopy;
+                return  {
+                    ...state,
+                    newMessageText: '',
+                    messagesData: [...state.messagesData, message]
+                };
             }
-        }
-        case UPDATE_MESSAGE_DATA: {
-            stateCopy.newMessageText = action.message;
-            return stateCopy;
-        }
-        default: {
-            return stateCopy;
-        }
+        case UPDATE_MESSAGE_DATA:
+            return  {
+                ...state,
+                newMessageText: action.message
+            };
+        default:
+            return  {...state};
     }
 };
 

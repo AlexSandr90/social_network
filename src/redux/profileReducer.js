@@ -51,13 +51,9 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
-    const stateCopy = {
-        ...state,
-        // postData: [...state.postData]
-    };
-
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST:
+
             let post = {
                 id: state.postData.length + 1,
                 message: state.newPostData,
@@ -66,18 +62,19 @@ const profileReducer = (state = initialState, action) => {
             };
 
             if (state.newPostData !== undefined && state.newPostData.length > 0) {
-                stateCopy.postData.push(post);
-                stateCopy.newPostData = '';
-                return stateCopy;
+                return  {
+                    ...state,
+                    newPostData: '',
+                    postData: [...state.postData, post],
+                };
             }
-        }
-        case UPDATE_POST_DATA: {
-            stateCopy.newPostData = action.message;
-            return stateCopy;
-        }
-        default: {
-            return stateCopy;
-        }
+        case UPDATE_POST_DATA:
+            return  {
+                ...state,
+                newPostData: action.message
+            };
+        default:
+            return  {...state};
     }
 };
 

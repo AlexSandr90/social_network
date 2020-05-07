@@ -6,8 +6,7 @@ import d from './dialogs.module.css';
 const Dialogs = props => {
 
     const state = props.dialogsPage;
-console.log(`state: ${state.value}`);
-console.log(`props: ${props.value}`);
+
     const {
         button,
         dialogs,

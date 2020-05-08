@@ -8,12 +8,12 @@ import Music from "../music";
 import Header from "../header";
 import Footer from "../footer";
 import Navbar from "../navbar";
-import Friends from "../friends";
 import Profile from "../profile";
 import Settings from "../settings";
 import DialogsContainer from "../dialogs/DialogsContainer";
 
 import { Route } from "react-router-dom";
+import FriendsContainer from "../friends";
 
 const App = props => {
     return (
@@ -32,7 +32,7 @@ const App = props => {
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
-                <Route path='/friends' render={() => <Friends state={ props.state.friendsPage }/>}/>
+                <Route path='/friends' render={() => <FriendsContainer store={props.store} />}/>
             </div>
             <Footer/>
         </div>

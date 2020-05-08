@@ -1,3 +1,8 @@
 import Friends from "./Friends";
+import FriendsContainer from "./FriendsContainer";
 
-export default Friends;
+export {
+    Friends
+}
+
+export default FriendsContainer;

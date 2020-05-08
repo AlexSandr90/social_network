@@ -34,7 +34,7 @@ const initialState = {
 };
 
 const friendsReducer = (state = initialState, action) => {
-    return state;
+    return {...state};
 };
 
 export default friendsReducer;

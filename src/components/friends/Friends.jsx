@@ -42,6 +42,12 @@ const Friends = props => {
                     return (
                         <div key={id} className={item}>
                             <img src={avatar} alt="Friends avatar" className={avatarImg}/>
+                            {
+                                element.followed
+                                    ? <button onClick={() => {props.unfollow(element.id)} } >Unfollow</button>
+                                    : <button onClick={() => {props.follow(element.id)} } >Follow</button>
+                            }
+                            {/*<button>Follow</button>*/}
                             <p className={info}> {firstName} {lastName} </p>
                             <p className={info}> {status} </p>
                             <p className={info}> {country}, {city} </p>

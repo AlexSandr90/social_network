@@ -12,7 +12,16 @@ import {
     updateMessageDataActionType
 } from "./dialogsReducer";
 
+import {
+    followAC,
+    unfollowAC,
+    setFriendsAC
+} from "./friendsReducer";
+
 export {
+    followAC,
+    unfollowAC,
+    setFriendsAC,
     addPostActionCreater,
     addMessageActionCreator,
     updatePostDataActionCreater,

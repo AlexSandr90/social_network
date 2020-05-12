@@ -7,7 +7,8 @@ const Friend = props => {
     const {
         frendIcon,
         firstName,
-        lastName
+        lastName,
+        status
     } = props;
 
     const { item, avatar, info } = friend;
@@ -16,6 +17,7 @@ const Friend = props => {
         <div className={item}>
             <img src={frendIcon} className={avatar} alt="Friends avatar"/>
             <p className={info}> {firstName} {lastName} </p>
+            <p className={info}>{status}</p>
         </div>
     )
 };

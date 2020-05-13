@@ -16,11 +16,11 @@ const mapStateToPropst = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        follow: userId => {
-            dispatch(followAC(userId));
+        followFriend: friendId => {
+            dispatch(followAC(friendId));
         },
-        unfollow: userId => {
-            dispatch(unfollowAC(userId));
+        unfollowFriend: friendId => {
+            dispatch(unfollowAC(friendId));
         },
         setFriends: friend => {
             dispatch(setFriendsAC(friend));

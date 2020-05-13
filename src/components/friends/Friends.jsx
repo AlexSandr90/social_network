@@ -1,5 +1,4 @@
 import React from "react";
-// import Friend from "./friend";
 import friends from './friends.module.css';
 
 const Friends = props => {
@@ -11,16 +10,6 @@ const Friends = props => {
         friendsGroup
     } = friends;
 
-
-    // const FriendItem = props.friendsData.map(element => (
-    //     <Friend
-    //         key={element.id}
-    //         frendIcon={element.avatar}
-    //         firstName={element.firstName}
-    //         lastName={element.lastName}
-    //     />
-    // ));
-
     return (
         <div className={friendsGroup}>
             {
@@ -30,6 +19,7 @@ const Friends = props => {
                         id,
                         avatar,
                         status,
+                        followed,
                         lastName,
                         firstName,
                     } = element;
@@ -38,16 +28,17 @@ const Friends = props => {
                         city,
                         country
                     } = element.location;
-
+// debugger
                     return (
                         <div key={id} className={item}>
-                            <img src={avatar} alt="Friends avatar" className={avatarImg}/>
-                            {
-                                element.followed
-                                    ? <button onClick={() => {props.unfollow(element.id)} } >Unfollow</button>
-                                    : <button onClick={() => {props.follow(element.id)} } >Follow</button>
-                            }
-                            {/*<button>Follow</button>*/}
+                            <img src={avatar} className={avatarImg} alt='Friends avatar'/>
+                            <div>
+                                {
+                                    followed
+                                        ? <button onClick={() => props.unfollowFriend(id) } >Unfollow</button>
+                                        : <button onClick={() => props.followFriend(id) } >Follow</button>
+                                }
+                            </div>
                             <p className={info}> {firstName} {lastName} </p>
                             <p className={info}> {status} </p>
                             <p className={info}> {country}, {city} </p>

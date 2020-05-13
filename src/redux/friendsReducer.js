@@ -70,7 +70,6 @@ const initialState = {
 
 const friendsReducer = (state = initialState, action) => {
 
-
     switch (action.type) {
         case FOLLOW:
             return {
@@ -82,7 +81,7 @@ const friendsReducer = (state = initialState, action) => {
 
                     return user
                 })
-            }
+            };
         case UNFOLLOW:
             return {
                 ...state,
@@ -93,7 +92,7 @@ const friendsReducer = (state = initialState, action) => {
 
                     return user
                 })
-            }
+            };
         case SET_FRIENDS:
             return {
                 ...state,

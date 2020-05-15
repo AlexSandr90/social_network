@@ -28,7 +28,7 @@ const Friends = props => {
                         city,
                         country
                     } = element.location;
-// debugger
+
                     return (
                         <div key={id} className={item}>
                             <img src={avatar} className={avatarImg} alt='Friends avatar'/>

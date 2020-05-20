@@ -10,7 +10,7 @@ import {
     setTotalFriendsCountAC,
 } from "../../redux";
 
-const mapStateToPropst = state => {
+const mapStateToProps = state => {
     return {
         friendsData: state.friendsPage.friendsData,
         pageSize: state.friendsPage.pageSize,
@@ -40,6 +40,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-const FriendsContainer = connect(mapStateToPropst, mapDispatchToProps)(Friends);
+const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
 
 export default FriendsContainer;

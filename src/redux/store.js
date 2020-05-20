@@ -3,11 +3,11 @@ import dialogsReducer from "./dialogsReducer";
 import navbarReducer from "./navbarReducer";
 import friendsReducer from "./friendsReducer";
 import {
-    addPostActionCreater,
-    updatePostDataActionCreater
+    addPostAC,
+    updatePostDataAC
 } from "./profileReducer";
 import {
-    addMessageActionCreator,
+    addMessageAC,
     updateMessageDataActionType
 } from "./dialogsReducer";
 

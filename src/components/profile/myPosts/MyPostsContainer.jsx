@@ -1,8 +1,8 @@
 import React from "react";
 import MyPosts from "./MyPosts";
 import {
-    addPostActionCreater,
-    updatePostDataActionCreater
+    addPostAC,
+    updatePostDataAC
 } from "../../../redux";
 import { connect } from "react-redux";
 
@@ -15,8 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPost: () => dispatch(addPostActionCreater()),
-        updateNewPostData: text => dispatch(updatePostDataActionCreater(text)),
+        addPost: () => dispatch(addPostAC()),
+        updateNewPostData: text => dispatch(updatePostDataAC(text)),
     }
 };
 

@@ -5,12 +5,17 @@ import { connect } from 'react-redux';
 import {
     followAC,
     unfollowAC,
-    setFriendsAC
+    setFriendsAC,
+    setCurrentPageAC,
+    setTotalFriendsCountAC,
 } from "../../redux";
 
 const mapStateToPropst = state => {
     return {
-        friendsData: state.friendsPage.friendsData
+        friendsData: state.friendsPage.friendsData,
+        pageSize: state.friendsPage.pageSize,
+        totalFriendsCount: state.friendsPage.totalFriendsCount,
+        currentPage: state.friendsPage.currentPage
     }
 };
 
@@ -24,6 +29,12 @@ const mapDispatchToProps = dispatch => {
         },
         setFriends: friend => {
             dispatch(setFriendsAC(friend));
+        },
+        setCurrentPage: pageNumber => {
+            dispatch(setCurrentPageAC(pageNumber));
+        },
+        setTotalFriendsCount: totalCount => {
+            dispatch(setTotalFriendsCountAC(totalCount));
         }
     }
 };

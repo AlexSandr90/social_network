@@ -78,9 +78,9 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-const addPostActionCreater = () => ({type: ADD_POST});
+const addPostAC = () => ({type: ADD_POST});
 
-const updatePostDataActionCreater = message => {
+const updatePostDataAC = message => {
     return ({
         type: UPDATE_POST_DATA,
         message: message
@@ -88,8 +88,8 @@ const updatePostDataActionCreater = message => {
 };
 
 export {
-    addPostActionCreater,
-    updatePostDataActionCreater
+    addPostAC,
+    updatePostDataAC
 }
 
 export default profileReducer;

@@ -3,29 +3,33 @@
 import store from "./sroreRedux";
 
 import {
-    addPostActionCreater,
-    updatePostDataActionCreater
+    addPostAC,
+    updatePostDataAC
 } from "./profileReducer";
 
 import {
-    addMessageActionCreator,
+    addMessageAC,
     updateMessageDataActionType
 } from "./dialogsReducer";
 
 import {
     followAC,
     unfollowAC,
-    setFriendsAC
+    setFriendsAC,
+    setCurrentPageAC,
+    setTotalFriendsCountAC,
 } from "./friendsReducer";
 
 export {
     followAC,
+    addPostAC,
     unfollowAC,
     setFriendsAC,
-    addPostActionCreater,
-    addMessageActionCreator,
-    updatePostDataActionCreater,
-    updateMessageDataActionType,
+    addMessageAC,
+    setCurrentPageAC,
+    updatePostDataAC,
+    setTotalFriendsCountAC,
+    updateMessageDataActionType
 }
 
 export default store;

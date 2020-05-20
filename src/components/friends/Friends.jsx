@@ -70,24 +70,53 @@ import friends from './friends.module.css';
 class Friends extends Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&count=${this.props.pageSize}`)
             .then(res => {
                 this.props.setFriends(res.data.items);
+                this.props.setTotalFriendsCount(res.data.totalCount);
             })
     }
 
-    render() {
+    onPageChanged = pageNumber => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+            .then(res => {
+                this.props.setFriends(res.data.items);
+            })
+    };
 
+    render() {
+        
         const {
             info,
             item,
             avatarImg,
-            friendsGroup
+            friendsGroup,
+            selectedPage,
+            countPagePagination
         } = friends;
+
+        const pagesCount = Math.ceil(this.props.totalFriendsCount / this.props.pageSize);
+
+        const pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
 
         return (
             <div className={friendsGroup}>
-                {/*<button onClick={this.getFriends}>Get Friends</button>*/}
+                <div className={countPagePagination}>
+                    {
+                        pages.map(page => {
+                            return (
+                                <span
+                                    className={this.props.currentPage === page && selectedPage}
+                                    onClick={() => {this.onPageChanged(page);}}
+                                >{page}</span>
+                            )
+                        })
+                    }
+                </div>
                 {
                     this.props.friendsData.map(element => {
 
@@ -102,7 +131,7 @@ class Friends extends Component {
                         } = element;
 
                         return (
-                            <div key={id} className={item}>
+                            <div key={element.id} className={item}>
                                 <img src={element.photos.small != null ? element.photos.small : stockPhoto}
                                      className={avatarImg} alt='Friends avatar'/>
                                 <div>

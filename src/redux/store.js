@@ -2,15 +2,6 @@ import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 import navbarReducer from "./navbarReducer";
 import friendsReducer from "./friendsReducer";
-import {
-    addPostAC,
-    updatePostDataAC
-} from "./profileReducer";
-import {
-    addMessageAC,
-    updateMessageDataActionType
-} from "./dialogsReducer";
-
 
 const store = {
 
@@ -159,5 +150,3 @@ const store = {
 
     },
 };
-
-// export default store;

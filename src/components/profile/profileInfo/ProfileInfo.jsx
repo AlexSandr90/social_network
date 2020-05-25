@@ -1,8 +1,11 @@
 import React, {Fragment} from "react";
-
 import pInfo from './profileInfo.module.css';
+import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = props => {
+    if(!props.profile) {
+        return <Preloader/>
+    }
 
     const { imgBlock, img, descriptionBlock } = pInfo;
 
@@ -16,6 +19,7 @@ const ProfileInfo = props => {
                 />
             </div>
             <div className={descriptionBlock}>
+                <img src={props.profile.photos.large} />
                 ava + description
             </div>
         </Fragment>

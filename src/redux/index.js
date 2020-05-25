@@ -2,7 +2,8 @@ import store from "./sroreRedux";
 
 import {
     addPostAC,
-    updatePostDataAC
+    setUserProfile,
+    updatePostDataAC,
 } from "./profileReducer";
 
 import {
@@ -26,10 +27,11 @@ export {
     setFriends,
     addMessageAC,
     setCurrentPage,
+    setUserProfile,
     updatePostDataAC,
     toggleIsFetching,
     setTotalFriendsCount,
-    updateMessageDataActionType
+    updateMessageDataActionType,
 }
 
 export default store;

@@ -1,6 +1,7 @@
 import React from "react";
 import friends from './friends.module.css';
 import stockPhoto from '../../assets/images/stockPhoto.jpg';
+import { NavLink } from "react-router-dom";
 
 const Friends = props => {
 
@@ -51,8 +52,10 @@ const Friends = props => {
 
                     return (
                         <div key={id} className={item}>
-                            <img src={element.photos.small != null ? element.photos.small : stockPhoto}
-                                 className={avatarImg} alt={name}/>
+                            <NavLink to={`/profile/${id}`}>
+                                <img src={element.photos.small != null ? element.photos.small : stockPhoto}
+                                     className={avatarImg} alt={name}/>
+                            </NavLink>
                             <div>
                                 {
                                     followed

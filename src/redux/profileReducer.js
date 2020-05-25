@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_DATA = 'UPDATE-POST-DATA';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 const initialState = {
     postData: [
@@ -47,6 +48,7 @@ const initialState = {
         },
     ],
     newPostData: 'it-kamasutra.com',
+    profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -73,22 +75,23 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostData: action.message
             };
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            };
         default:
-            return  {...state};
+            return state;
     }
 };
 
 const addPostAC = () => ({type: ADD_POST});
-
-const updatePostDataAC = message => {
-    return ({
-        type: UPDATE_POST_DATA,
-        message: message
-    })
-};
+const updatePostDataAC = message => ({type: UPDATE_POST_DATA, message});
+const setUserProfile = profile => ({type: SET_USER_PROFILE, profile});
 
 export {
     addPostAC,
+    setUserProfile,
     updatePostDataAC
 }
 

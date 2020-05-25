@@ -1,5 +1,3 @@
-// import store from "./store";
-
 import store from "./sroreRedux";
 
 import {
@@ -13,22 +11,24 @@ import {
 } from "./dialogsReducer";
 
 import {
-    followAC,
-    unfollowAC,
-    setFriendsAC,
-    setCurrentPageAC,
-    setTotalFriendsCountAC,
+    follow,
+    unfollow,
+    setFriends,
+    setCurrentPage,
+    toggleIsFetching,
+    setTotalFriendsCount
 } from "./friendsReducer";
 
 export {
-    followAC,
+    follow,
     addPostAC,
-    unfollowAC,
-    setFriendsAC,
+    unfollow,
+    setFriends,
     addMessageAC,
-    setCurrentPageAC,
+    setCurrentPage,
     updatePostDataAC,
-    setTotalFriendsCountAC,
+    toggleIsFetching,
+    setTotalFriendsCount,
     updateMessageDataActionType
 }
 

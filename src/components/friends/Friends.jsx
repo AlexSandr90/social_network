@@ -50,14 +50,14 @@ const Friends = props => {
                     } = element;
 
                     return (
-                        <div key={element.id} className={item}>
+                        <div key={id} className={item}>
                             <img src={element.photos.small != null ? element.photos.small : stockPhoto}
                                  className={avatarImg} alt={name}/>
                             <div>
                                 {
                                     followed
-                                        ? <button onClick={() => props.unfollowFriend(id)}>Unfollow</button>
-                                        : <button onClick={() => props.followFriend(id)}>Follow</button>
+                                        ? <button onClick={() => props.unfollow(id)}>Unfollow</button>
+                                        : <button onClick={() => props.follow(id)}>Follow</button>
                                 }
                             </div>
                             <p className={info}> {name} </p>
@@ -69,6 +69,6 @@ const Friends = props => {
             }
         </div>
     )
-}
+};
 
 export default Friends;

@@ -46,8 +46,8 @@ class FriendsAPIContainer extends Component {
                          currentPage={this.props.currentPage}
                          onPageChanged={this.onPageChanged}
                          friendsData={this.props.friendsData}
-                         followFriend={this.props.followFriend}
-                         unfollowFriend={this.props.unfollowFriend}
+                         follow={this.props.follow}
+                         unfollow={this.props.unfollow}
                 />
             </Fragment>
         )

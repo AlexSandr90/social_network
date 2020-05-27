@@ -20,7 +20,41 @@ const ProfileInfo = props => {
             </div>
             <div className={descriptionBlock}>
                 <img src={props.profile.photos.large} />
-                ava + description
+                <div>
+                    {props.profile.fullName && <p>Name: {props.profile.fullName}</p>}
+                    {props.profile.aboutMe && <p>About me: {props.profile.aboutMe}</p>}
+                    <ul>MyContacts:
+                        {
+                            props.profile.contacts.facebook && <li>FB: {props.profile.contacts.facebook}</li>
+                        }
+                        {
+                            props.profile.contacts.github && <li>Github: {props.profile.contacts.github}</li>
+                        }
+                        {
+                            props.profile.contacts.instagram && <li>Insta: {props.profile.contacts.instagram}</li>
+                        }
+                        {
+                            props.profile.contacts.mainLink && <li>Link: {props.profile.contacts.mainLink}</li>
+                        }
+                        {
+                            props.profile.contacts.twitter && <li>Twitter: {props.profile.contacts.twitter}</li>
+                        }
+                        {
+                            props.profile.contacts.vk && <li>VK: {props.profile.contacts.vk}</li>
+                        }
+                        {
+                            props.profile.contacts.website && <li>Site: {props.profile.contacts.website}</li>
+                        }
+                        {
+                            props.profile.contacts.youtube && <li>Youtube: {props.profile.contacts.youtube}</li>
+                        }
+                        {}
+                    </ul>
+                    <p>ID: {props.profile.userId}</p>
+                    {props.profile.lookingForAJob ? <p>lookingForAJob: Yes</p>: <p>lookingForAJob: No</p>}
+                    {props.profile.lookingForAJob && props.profile.lookingForAJobDescription && <p>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</p>}
+                </div>
+                {/*description*/}
             </div>
         </Fragment>
     )

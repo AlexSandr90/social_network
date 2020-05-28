@@ -11,11 +11,12 @@ class HeaderContainer extends Component{
             withCredentials: true
         })
             .then(res => {
+                // debugger
                 if (res.data.resultCode === 0) {
                     const {
                         id,
-                        login,
-                        email
+                        email,
+                        login
                     } = res.data.data;
                     this.props.setAuthUserData(id, email, login);
                 }

@@ -1,4 +1,4 @@
-const SET_USERS_DATA = 'SET_USERS_DATA';
+const SET_USER_DATA = 'SET_USER_DATA';
 
 const initialState = {
     userId: null,
@@ -9,19 +9,19 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USERS_DATA:
+        case SET_USER_DATA:
             return {
                 ...state,
                 ...action.data,
                 isAuth: true
             };
         default:
-            return state
+            return state;
     }
 };
 
 const setAuthUserData = (userId, email, login) => ({
-    type: SET_USERS_DATA,
+    type: SET_USER_DATA,
     data: {
         userId,
         email,

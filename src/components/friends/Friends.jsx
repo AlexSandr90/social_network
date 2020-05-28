@@ -1,5 +1,5 @@
 import React from "react";
-import friends from './friends.module.css';
+import friends from './friends.module.scss';
 import stockPhoto from '../../assets/images/stockPhoto.jpg';
 import { NavLink } from "react-router-dom";
 

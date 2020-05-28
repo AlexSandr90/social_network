@@ -23,6 +23,7 @@ const ProfileInfo = props => {
                 <div>
                     {props.profile.fullName && <p>Name: {props.profile.fullName}</p>}
                     {props.profile.aboutMe && <p>About me: {props.profile.aboutMe}</p>}
+
                     <ul>MyContacts:
                         {
                             props.profile.contacts.facebook && <li>FB: {props.profile.contacts.facebook}</li>

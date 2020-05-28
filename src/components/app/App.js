@@ -14,7 +14,7 @@ import DialogsContainer from "../dialogs/DialogsContainer";
 
 import {Route} from "react-router-dom";
 import FriendsContainer from "../friends";
-import HeaderContainer from "../header/HeaderContainer";
+import HeaderContainer from "../header";
 
 const App = props => {
     return (

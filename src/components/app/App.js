@@ -19,7 +19,6 @@ import HeaderContainer from "../header";
 const App = props => {
     return (
         <div className='app-wrapper'>
-            {/*<Header/>*/}
             <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper__content'>

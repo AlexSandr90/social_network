@@ -71,29 +71,3 @@ const FriendsContainer = connect(
 (FriendsAPIContainer);
 
 export default FriendsContainer;
-
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         followFriend: friendId => {
-//             dispatch(followAC(friendId));
-//         },
-//         unfollowFriend: friendId => {
-//             dispatch(unfollowAC(friendId));
-//         },
-//         setFriends: friend => {
-//             dispatch(setFriendsAC(friend));
-//         },
-//         setCurrentPage: pageNumber => {
-//             dispatch(setCurrentPageAC(pageNumber));
-//         },
-//         setTotalFriendsCount: totalCount => {
-//             dispatch(setTotalFriendsCountAC(totalCount));
-//         },
-//         toggleIsFetching: isFetching => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// };
-
-// const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsAPIContainer);

@@ -14,11 +14,13 @@ import DialogsContainer from "../dialogs/DialogsContainer";
 
 import {Route} from "react-router-dom";
 import FriendsContainer from "../friends";
+import HeaderContainer from "../header/HeaderContainer";
 
 const App = props => {
     return (
         <div className='app-wrapper'>
-            <Header/>
+            {/*<Header/>*/}
+            <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper__content'>
                 <Route

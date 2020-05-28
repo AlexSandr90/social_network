@@ -20,6 +20,10 @@ import {
     setTotalFriendsCount
 } from "./friendsReducer";
 
+import {
+    setAuthUserData
+} from "./authReducer";
+
 export {
     follow,
     addPostAC,
@@ -28,6 +32,7 @@ export {
     addMessageAC,
     setCurrentPage,
     setUserProfile,
+    setAuthUserData,
     updatePostDataAC,
     toggleIsFetching,
     setTotalFriendsCount,

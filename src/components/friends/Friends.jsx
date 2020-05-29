@@ -3,6 +3,7 @@ import friends from './friends.module.scss';
 import stockPhoto from '../../assets/images/stockPhoto.jpg';
 import { NavLink } from "react-router-dom";
 import * as axios from 'axios';
+import {usersAPI} from "../../api";
 
 
 const Friends = props => {
@@ -61,34 +62,29 @@ const Friends = props => {
                             <div>
                                 {
                                     followed
-                                        ? <button onClick={() => {
-                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY" : "f764e591-9a1f-433c-8b12-0d58c3ad9e13"
-                                                }
+                                    ? <button onClick={() => {
+                                        usersAPI.getUnfollow(id)
+                                            .then(data => {
+                                               if (data.resultCode === 0) {
+                                                   return props.unfollow(id)
+                                               }
                                             })
-                                                .then(res => {
-                                                    if (res.data.resultCode === 0) {
-                                                        props.unfollow(id)
-                                                    }
-                                                })
-                                        }}>Unfollow</button>
+                                        }}>
+                                            Unfollow
+                                    </button>
                                         : <button onClick={() => {
-                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY" : "f764e591-9a1f-433c-8b12-0d58c3ad9e13"
-                                                }
-                                            })
-                                                .then(res => {
-                                                    if (res.data.resultCode === 0) {
-                                                        props.follow(id)
+                                            usersAPI.getFollow(id)
+                                                .then(data => {
+                                                    if (data.resultCode === 0) {
+                                                        return props.follow(id)
                                                     }
                                                 })
-                                        }}>Follow</button>
+                                        }}>
+                                            Follow
+                                        </button>
                                 }
                             </div>
+
                             <p className={info}> {name} </p>
                             <p className={info}> {status} </p>
                             <p className={info}> {'{country}, {city}'} </p>

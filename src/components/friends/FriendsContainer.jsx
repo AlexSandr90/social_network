@@ -11,7 +11,8 @@ import {
     setFriends,
     setCurrentPage,
     toggleIsFetching,
-    setTotalFriendsCount
+    setTotalFriendsCount,
+    toggleFollowingProgress,
 } from "../../redux";
 
 
@@ -51,6 +52,8 @@ class FriendsAPIContainer extends Component {
                          friendsData={this.props.friendsData}
                          follow={this.props.follow}
                          unfollow={this.props.unfollow}
+                         toggleFollowingProgress={this.props.toggleFollowingProgress}
+                         followingInPropgress={this.props.followingInProgress}
                 />
             </Fragment>
         )
@@ -65,12 +68,21 @@ const mapStateToProps = state => {
         totalFriendsCount: state.friendsPage.totalFriendsCount,
         currentPage: state.friendsPage.currentPage,
         isFetching: state.friendsPage.isFetching,
+        followingInProgress: state.friendsPage.followingInProgress
     }
 };
 
 const FriendsContainer = connect(
     mapStateToProps,
-    { follow, unfollow, setFriends, setCurrentPage, setTotalFriendsCount, toggleIsFetching })
+    {
+        follow,
+        unfollow,
+        setFriends,
+        setCurrentPage,
+        setTotalFriendsCount,
+        toggleIsFetching,
+        toggleFollowingProgress,
+    })
 (FriendsAPIContainer);
 
 export default FriendsContainer;

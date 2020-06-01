@@ -1,22 +1,22 @@
 import React from 'react';
+import News from "../news";
+import Music from "../music";
+import Footer from "../footer";
+import Navbar from "../navbar";
+import Settings from "../settings";
+import HeaderContainer from "../header";
+import ProfileContainer from "../profile";
+import DialogsContainer from "../dialogs/DialogsContainer";
+import FriendsContainer from "../friends";
+
 
 import './App.css';
 import '../variables/variables.css';
 
-import News from "../news";
-import Music from "../music";
-import Header from "../header";
-import Footer from "../footer";
-import Navbar from "../navbar";
-import ProfileContainer from "../profile";
-import Settings from "../settings";
-import DialogsContainer from "../dialogs/DialogsContainer";
-
 import {Route} from "react-router-dom";
-import FriendsContainer from "../friends";
-import HeaderContainer from "../header";
 
-const App = props => {
+
+const App = () => {
     return (
         <div className='app-wrapper'>
             <HeaderContainer/>

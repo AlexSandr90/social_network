@@ -53,7 +53,7 @@ class FriendsAPIContainer extends Component {
                          follow={this.props.follow}
                          unfollow={this.props.unfollow}
                          toggleFollowingProgress={this.props.toggleFollowingProgress}
-                         followingInPropgress={this.props.followingInProgress}
+                         followingInProgress={this.props.followingInProgress}
                 />
             </Fragment>
         )

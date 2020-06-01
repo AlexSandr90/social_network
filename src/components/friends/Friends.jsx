@@ -61,31 +61,31 @@ const Friends = props => {
                             <div>
                                 {
                                     followed
-                                    ? <button  disabled={props.followingInProgress.some(id => id === id)}  onClick={() => {
-                                        props.toggleFollowingProgress(true, id);
+                                    ? <button  disabled={props.followingInProgress.some(id => id === element.id)}  onClick={() => {
+                                        props.toggleFollowingProgress(true, element.id);
                                         usersAPI.getUnfollow(id)
                                             .then(data => {
                                                if (data.resultCode === 0) {
                                                    return props.unfollow(id)
+
                                                }
-                                               props.toggleFollowingProgress(false, id);
+                                               props.toggleFollowingProgress(false, element.id)
                                             })
                                         }}>
                                             Unfollow
                                     </button>
-                                        : <button disabled={props.followingInProgress.some(id => id === id)} onClick={() => {
-                                            debugger
-                                            props.toggleFollowingProgress(true, id);
-                                            usersAPI.getFollow(id)
-                                                .then(data => {
-                                                    if (data.resultCode === 0) {
-                                                        return props.follow(id)
-                                                    }
-                                                    props.toggleFollowingProgress(false, id);
-                                                })
-                                        }}>
-                                            Follow
-                                        </button>
+                                    : <button disabled={props.followingInProgress.some(id => id === element.id)} onClick={() => {
+                                                  props.toggleFollowingProgress(true, element.id);
+                                                  usersAPI.getFollow(id)
+                                                      .then(data => {
+                                                          if (data.resultCode === 0) {
+                                                              return props.follow(id)
+                                                          }
+                                                          props.toggleFollowingProgress(false, element.id)
+                                                      })
+                                              }}>
+                                        Follow
+                                    </button>
                                 }
                             </div>
 

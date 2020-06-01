@@ -12,7 +12,7 @@ const initialState = {
     totalFriendsCount: 0,
     currentPage: 1,
     isFetching: true,
-    followingInProgress: [2,3]
+    followingInProgress: []
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -60,13 +60,14 @@ const friendsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             };
-        case TOGGLE_IS_FOLLOWING_PROGRESS:
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
                 ...state,
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
                     : state.followingInProgress.filter(id => id !== action.userId)
             };
+        }
         default:
             return state
     }

@@ -25,28 +25,12 @@ const usersAPI = {
                 })
         )
     },
-    // getFollow(id = 2) {
-    //     return (
-    //         instance.post(`follow/${id}`, {})
-    //             .then(res => {
-    //                 return res.data
-    //             })
-    //     )
-    // },
     getFollow(userId) {
         return instance.post(`follow/${userId}`)
     },
     getUnfollow(useId) {
         return instance.delete(`follow/${useId}`)
     },
-    // getUnfollow(id = 2) {
-    //     return (
-    //         instance.delete(`follow/${id}`)
-    //             .then(res => {
-    //                 return res.data;
-    //             })
-    //     )
-    // }
 };
 
 export {usersAPI};

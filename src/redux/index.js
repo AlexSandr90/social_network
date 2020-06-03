@@ -17,6 +17,7 @@ import {
     setFriends,
     setCurrentPage,
     toggleIsFetching,
+    getUsers,
     setTotalFriendsCount,
     toggleFollowingProgress,
 } from "./friendsReducer";
@@ -36,6 +37,7 @@ export {
     setAuthUserData,
     updatePostDataAC,
     toggleIsFetching,
+    getUsers,
     setTotalFriendsCount,
     toggleFollowingProgress,
     updateMessageDataActionType,

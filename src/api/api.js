@@ -17,20 +17,24 @@ const usersAPI = {
                 })
         )
     },
-    getMe() {
-        return (
-            instance.get(`auth/me`)
-                .then(res => {
-                    return res.data;
-                })
-        )
-    },
     getFollow(userId) {
         return instance.post(`follow/${userId}`)
     },
     getUnfollow(useId) {
         return instance.delete(`follow/${useId}`)
     },
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`);
+    }
 };
 
-export {usersAPI};
+const authApi = {
+    getMe() {
+        return instance.get(`auth/me`)
+    },
+};
+
+export {
+    authApi,
+    usersAPI,
+};

@@ -2,8 +2,6 @@ import React from "react";
 import friends from './friends.module.scss';
 import stockPhoto from '../../assets/images/stockPhoto.jpg';
 import { NavLink } from "react-router-dom";
-import {usersAPI} from "../../api";
-import { toggleFollowingProgress } from "../../redux";
 
 const Friends = props => {
 

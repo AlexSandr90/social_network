@@ -1,6 +1,6 @@
 import React from "react";
 
-import settings from './settings.module.css';
+import settings from './settings.module.scss';
 
 const Settings =() => {
     return (

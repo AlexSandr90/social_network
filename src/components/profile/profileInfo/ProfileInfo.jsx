@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
-import pInfo from './profileInfo.module.css';
+import pInfo from './profileInfo.module.scss';
 import Preloader from "../../common/Preloader/Preloader";
+import stockPhoto from '../../../assets/images/stockPhoto.jpg'
 
 const ProfileInfo = props => {
     if(!props.profile) {
@@ -19,7 +20,7 @@ const ProfileInfo = props => {
                 />
             </div>
             <div className={descriptionBlock}>
-                <img src={props.profile.photos.large} />
+                <img src={ props.profile.photos.large != null ? props.profile.photos.large : stockPhoto} />
                 <div>
                     {props.profile.fullName && <p>Name: {props.profile.fullName}</p>}
                     {props.profile.aboutMe && <p>About me: {props.profile.aboutMe}</p>}

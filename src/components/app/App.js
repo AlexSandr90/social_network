@@ -14,6 +14,7 @@ import './App.css';
 import '../variables/variables.css';
 
 import {Route} from "react-router-dom";
+import Login from "../login";
 
 
 const App = () => {
@@ -22,18 +23,18 @@ const App = () => {
             <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper__content'>
-                <Route
-                    path='/profile/:userId?'
-                    render={() => <ProfileContainer/>}/>
-                <Route
-                    path='/dialogs'
-                    render={() => <DialogsContainer/>}/>
+                <Route path='/profile/:userId?'
+                       render={() => <ProfileContainer/>}/>
+                <Route path='/dialogs'
+                       render={() => <DialogsContainer/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
-                <Route
-                    path='/friends'
-                    render={() => <FriendsContainer/>}/>
+                <Route path='/friends'
+                       render={() => <FriendsContainer/>}/>
+                <Route path='/login'
+                       render={ () => <Login/>}
+                />
             </div>
             <Footer/>
         </div>

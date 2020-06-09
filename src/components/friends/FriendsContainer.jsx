@@ -13,6 +13,8 @@ import {
     setTotalFriendsCount,
     toggleFollowingProgress,
 } from "../../redux";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../hoc";
 
 
 class FriendsAPIContainer extends Component {
@@ -57,18 +59,34 @@ const mapStateToProps = state => {
     }
 };
 
-const FriendsContainer = connect(
-    mapStateToProps,
-    {
-        follow,
-        unfollow,
-        getUsers,
-        setFriends,
-        setCurrentPage,
-        toggleIsFetching,
-        setTotalFriendsCount,
-        toggleFollowingProgress,
-    })
-(FriendsAPIContainer);
+// const FriendsContainer = connect(
+//     mapStateToProps,
+//     {
+//         follow,
+//         unfollow,
+//         getUsers,
+//         setFriends,
+//         setCurrentPage,
+//         toggleIsFetching,
+//         setTotalFriendsCount,
+//         toggleFollowingProgress,
+//     }) 
+// (FriendsAPIContainer);
+
+const FriendsContainer = compose(
+    withAuthRedirect,
+    connect(
+        mapStateToProps,
+        {
+            follow,
+            unfollow,
+            getUsers,
+            setFriends,
+            setCurrentPage,
+            toggleIsFetching,
+            setTotalFriendsCount,
+            toggleFollowingProgress,
+        })
+)(FriendsAPIContainer);
 
 export default FriendsContainer;

@@ -2,8 +2,12 @@ import store from "./sroreRedux";
 
 import {
     addPostAC,
+    setStatus,
+    getStatus,
+    updateStatus,
     getUserProfile,
-    updatePostDataAC,
+    setUserProfile,
+    updatePostDataAC
 } from "./profileReducer";
 
 import {
@@ -28,16 +32,20 @@ import {
 
 export {
     follow,
-    addPostAC,
     unfollow,
+    getUsers,
+    getStatus,
+    setStatus,
+    addPostAC,
     setFriends,
+    updateStatus,
     addMessageAC,
+    setUserProfile,
     setCurrentPage,
     getUserProfile,
     getAuthUserData,
     updatePostDataAC,
     toggleIsFetching,
-    getUsers,
     setTotalFriendsCount,
     toggleFollowingProgress,
     updateMessageDataActionType,

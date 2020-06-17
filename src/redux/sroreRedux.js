@@ -4,6 +4,7 @@ import {
     applyMiddleware
 } from "redux";
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 
 import authReducer from "./authReducer";
 import navbarReducer from "./navbarReducer";
@@ -13,6 +14,7 @@ import friendsReducer from "./friendsReducer";
 
 const reducers = combineReducers({
     auth: authReducer,
+    form: formReducer,
     navbarPage: navbarReducer,
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,

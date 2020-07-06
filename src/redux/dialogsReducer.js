@@ -34,7 +34,7 @@ const initialState = {
         {id:2, message: 'How are you'},
         {id:3, message: 'How do you do'}
     ],
-    newMessageText: ''
+    newMessageBody: ''
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -44,27 +44,35 @@ const dialogsReducer = (state = initialState, action) => {
 
             let message = {
                 id: state.messagesData.length + 1,
-                message: state.newMessageText
+                message: action.newMessageBody
             };
 
-            if (state.newMessageText !== undefined && state.newMessageText.length > 0) {
-                return  {
-                    ...state,
-                    newMessageText: '',
-                    messagesData: [...state.messagesData, message]
-                };
-            }
+            // let message = action.newMessageBody;
+
+            return  {
+                ...state,
+                newMessageBody: '',
+                messagesData: [...state.messagesData, message]
+            };
+
+            // if (state.newMessageText !== undefined && state.newMessageText.length > 0) {
+            //     return  {
+            //         ...state,
+            //         newMessageText: '',
+            //         messagesData: [...state.messagesData, message]
+            //     };
+            // }
         case UPDATE_MESSAGE_DATA:
             return  {
                 ...state,
-                newMessageText: action.message
+                newMessageBody: action.message
             };
         default:
-            return  {...state};
+            return state;
     }
 };
 
-const addMessageAC = () => ({type: ADD_MESSAGE});
+const addMessageAC = newMessageBody => ({type: ADD_MESSAGE, newMessageBody});
 
 const updateMessageDataActionType = message => {
     return ({

@@ -5,24 +5,21 @@ const LoginForm = props => {
     return (
         <form onSubmit={props.handleSubmit}>
             <p>
-                <Field
-                    placeholder={'Login'}
-                    name={'login'}
-                    component={'input'}
+                <Field placeholder={'Login'}
+                        name={'login'}
+                        component={'input'}
                 />
             </p>
             <p>
-                <Field
-                    placeholder={'Password'}
-                    name={'password'}
-                    component={'input'}
+                <Field placeholder={'Password'}
+                        name={'password'}
+                        component={'input'}
                 />
             </p>
             <p>
-                <Field
-                    type={'checkbox'}
-                    name={'rememberMe'}
-                    component={'input'}
+                <Field type={'checkbox'}
+                        name={'rememberMe'}
+                        component={'input'}
                 /> remember me
             </p>
             <p>

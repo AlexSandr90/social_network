@@ -9,22 +9,22 @@ const ProfileInfo = props => {
         return <Preloader/>
     }
 
-    const { imgBlock, img, descriptionBlock } = pInfo;
+    const { imgBlock, img, descriptionBlock, profilePhoto } = pInfo;
 
     return (
         <Fragment>
-            <div className={imgBlock}>
-                <img
-                    src='https://www.pega.com/sites/default/files/styles/640/public/media/images/2019-08/blog800x4007reasonstoembracelow-codedevelopment.jpg?itok=IL1UG4et'
-                    alt="img"
-                    className={img}
-                />
-            </div>
+            {/*<div className={imgBlock}>*/}
+            {/*    <img*/}
+            {/*        src='https://www.pega.com/sites/default/files/styles/640/public/media/images/2019-08/blog800x4007reasonstoembracelow-codedevelopment.jpg?itok=IL1UG4et'*/}
+            {/*        alt="img"*/}
+            {/*        className={img}*/}
+            {/*    />*/}
+            {/*</div>*/}
             <div>
 
             </div>
             <div className={descriptionBlock}>
-                <img src={ props.profile.photos.large != null ? props.profile.photos.large : stockPhoto} />
+                <img src={ props.profile.photos.large != null ? props.profile.photos.large : stockPhoto} className={profilePhoto} />
                 <ProfileStatus
                     status={props.status}
                     updateStatus={props.updateStatus}

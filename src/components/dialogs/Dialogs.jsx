@@ -10,12 +10,9 @@ const Dialogs = props => {
     const state = props.dialogsPage;
 
     const {
-        button,
         dialogs,
-        messagesField,
-        textField,
         dialogsItems,
-        messageInputField,
+        messagesField,
     } = d;
 
     const dialogsItem = state.dialogsData.map(element => (
@@ -39,11 +36,9 @@ const Dialogs = props => {
 
     const newMessage = () => props.sendMessage();
 
-    const onMessageChange = event => props.updateMessageData(event.target.value);
-
     const addNewMessage = values => {
         props.sendMessage(values.newMessageBody);
-    }
+    };
 
     if (!props.isAuth) {
         return <Redirect to={'/login'} />

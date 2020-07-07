@@ -6,7 +6,6 @@ import {
 const ADD_POST = 'ADD-POST';
 const SET_STATUS = 'SET_STATUS';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const UPDATE_POST_DATA = 'UPDATE-POST-DATA';
 
 const initialState = {
     postData: [
@@ -53,7 +52,6 @@ const initialState = {
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
         },
     ],
-    newPostData: 'it-kamasutra.com',
     profile: null,
     status: ''
 };
@@ -65,23 +63,19 @@ const profileReducer = (state = initialState, action) => {
 
             let post = {
                 id: state.postData.length + 1,
-                message: state.newPostData,
+                message: action.newPostText,
                 likesCount: 0,
                 avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
             };
 
-            if (state.newPostData !== undefined && state.newPostData.length > 0) {
-                return  {
+            if (action.newPostText !== undefined && action.newPostText.length > 0) {
+                return {
                     ...state,
-                    newPostData: '',
+                    newPostText: '',
                     postData: [...state.postData, post],
                 };
             }
-        case UPDATE_POST_DATA:
-            return  {
-                ...state,
-                newPostData: action.message
-            };
+            return state;
         case SET_USER_PROFILE:
             return {
                 ...state,
@@ -97,8 +91,8 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-const addPostAC = () => ({type: ADD_POST});
-const updatePostDataAC = message => ({type: UPDATE_POST_DATA, message});
+
+const addPostAC = newPostText => ({type: ADD_POST, newPostText});
 
 const setUserProfile = profile => ({type: SET_USER_PROFILE, profile});
 const setStatus = status => ({type: SET_STATUS, status});
@@ -133,7 +127,6 @@ export {
     updateStatus,
     getUserProfile,
     setUserProfile,
-    updatePostDataAC
 }
 
 export default profileReducer;

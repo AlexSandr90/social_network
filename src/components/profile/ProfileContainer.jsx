@@ -56,8 +56,4 @@ const ProfileContainer = compose(
     withRouter,
 )(ProfileAPIContainer);
 
-// const AuthRedirectComponent = withAuthRedirect(ProfileAPIContainer);
-// const WithDataContainerComponent = withRouter(AuthRedirectComponent);
-// const ProfileContainer = connect(mapStateToProps, {getUserProfile})(AuthRedirectComponent);
-
 export default ProfileContainer;

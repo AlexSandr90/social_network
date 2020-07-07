@@ -24,7 +24,11 @@ const ProfileInfo = props => {
 
             </div>
             <div className={descriptionBlock}>
-                <img src={ props.profile.photos.large != null ? props.profile.photos.large : stockPhoto} className={profilePhoto} />
+                <img
+                    src={ props.profile.photos.large != null ?
+                        props.profile.photos.large :
+                        stockPhoto}
+                    className={profilePhoto} />
                 <ProfileStatus
                     status={props.status}
                     updateStatus={props.updateStatus}
@@ -64,7 +68,7 @@ const ProfileInfo = props => {
                     {props.profile.lookingForAJob ? <p>lookingForAJob: Yes</p>: <p>lookingForAJob: No</p>}
                     {props.profile.lookingForAJob && props.profile.lookingForAJobDescription && <p>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</p>}
                 </div>
-                {/*description*/}
+                description
             </div>
         </Fragment>
     )

@@ -7,12 +7,10 @@ import {
     updateStatus,
     getUserProfile,
     setUserProfile,
-    updatePostDataAC
 } from "./profileReducer";
 
 import {
     addMessageAC,
-    updateMessageDataActionType
 } from "./dialogsReducer";
 
 import {
@@ -44,11 +42,9 @@ export {
     setCurrentPage,
     getUserProfile,
     getAuthUserData,
-    updatePostDataAC,
     toggleIsFetching,
     setTotalFriendsCount,
     toggleFollowingProgress,
-    updateMessageDataActionType,
 }
 
 export default store;

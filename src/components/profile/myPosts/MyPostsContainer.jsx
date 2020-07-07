@@ -2,7 +2,6 @@ import React from "react";
 import MyPosts from "./MyPosts";
 import {
     addPostAC,
-    updatePostDataAC
 } from "../../../redux";
 import { connect } from "react-redux";
 
@@ -15,8 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPost: () => dispatch(addPostAC()),
-        updateNewPostData: text => dispatch(updatePostDataAC(text)),
+        addPost: newPostText => dispatch(addPostAC(newPostText)),
     }
 };
 

@@ -2,7 +2,6 @@ import React from "react";
 import Dialogs from "./Dialogs";
 import {
     addMessageAC,
-    updateMessageDataActionType
 } from "../../redux";
 import {connect} from "react-redux";
 import { withAuthRedirect } from "../../hoc";
@@ -17,7 +16,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         sendMessage: newMessageBody => dispatch(addMessageAC(newMessageBody)),
-        updateMessageData: text => dispatch(updateMessageDataActionType(text)),
     }
 };
 

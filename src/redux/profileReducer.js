@@ -67,15 +67,19 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0,
                 avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaqesW_4YUvdVSr3HyJVwKutuNjNZErzsrspdGMrG94FuYflnf'
             };
-
-            if (action.newPostText !== undefined && action.newPostText.length > 0) {
-                return {
-                    ...state,
-                    newPostText: '',
-                    postData: [...state.postData, post],
-                };
-            }
-            return state;
+            return {
+                ...state,
+                newPostText: '',
+                postData: [...state.postData, post],
+            };
+            // if (action.newPostText !== undefined && action.newPostText.length > 0) {
+            //     return {
+            //         ...state,
+            //         newPostText: '',
+            //         postData: [...state.postData, post],
+            //     };
+            // }
+            // return state;
         case SET_USER_PROFILE:
             return {
                 ...state,
@@ -93,7 +97,6 @@ const profileReducer = (state = initialState, action) => {
 
 
 const addPostAC = newPostText => ({type: ADD_POST, newPostText});
-
 const setUserProfile = profile => ({type: SET_USER_PROFILE, profile});
 const setStatus = status => ({type: SET_STATUS, status});
 

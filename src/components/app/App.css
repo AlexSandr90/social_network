@@ -30,5 +30,5 @@ code {
 
 .app-wrapper__content {
   grid-area: content;
-  background-color: #c230ff;
+  background-color: var(--content-block-bg-color);
 }

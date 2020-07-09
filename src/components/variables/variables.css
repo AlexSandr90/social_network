@@ -1,4 +1,8 @@
 :root {
     --main-bg-color: #00aaff;
     --main-font-color: #ffffff;
+    --error-color: #ff0026;
+    --content-block-bg-color: #0e8e44;
+
+    --error-border: 2px solid var(--error-color);
 }

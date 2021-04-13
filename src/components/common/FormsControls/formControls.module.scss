@@ -1,0 +1,15 @@
+.formControl {
+
+}
+
+.formControl.error {
+  input,
+  textarea {
+    border: var(--error-border);
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  span {
+    color: var(--error-color);
+  }
+}

@@ -1,0 +1,5 @@
+.footer {
+    grid-area: footer;
+    /*background-color: #50dbff;*/
+    background-color: var(--main-bg-color);
+}
